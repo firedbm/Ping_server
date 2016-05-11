@@ -2,29 +2,24 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block head %}
+	
 {% endblock %}
 {% block title %}
-	Ping
+	Create User
 {% endblock %}
 {% block body %}
-{% if servidor %}
-<div>
-	<h2>{{ servidor }}</h2>
-	<a href="{% url 'user:logout' %}">Logout</a>
-</div>
-{% else %}
 <div class="col-md-offset-4">
-<h1>Bienvenido</h1>
+<h1>Welcome</h1>
 	<form method="POST" >
-	<div class="col-md-6" >
+		<div class="col-md-4">
 		{% csrf_token %}
 		{{ form|crispy }}
 		<input type="submit" class="btn btn-primary"/>
-		<a href="{% url 'user:logout' %}">Logout</a>	
-	</div>	
+		</div>
+		
 	</form>
 </div>
-{% endif %}
 {% endblock %}
-{% block script %}	
+{% block script %}
+	
 {% endblock %}

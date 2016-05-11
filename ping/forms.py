@@ -2,15 +2,15 @@ from django import forms
 import os
 
 class Ping(forms.Form):
-	servidor = forms.CharField(max_length=250, label='Servidor', required=True )
+	servidor = forms.CharField(max_length=250, label='Server', required=True )
 	def search_server(self):
 
-		dato= self.cleaned_data.get('servidor')
-		reponse = os.system("ping -c1 "+str(dato))
+		url = str(self.cleaned_data.get('servidor'))
+		reponse = os.system("ping -c1 "+url)
 		if not reponse:
-			return "Servidor Disponible"
+			return "Server UP!"
 		else:
-			return 'Servidor no Disponible'
+			return 'Server Down!'
 
 
 
