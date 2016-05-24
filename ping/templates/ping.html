@@ -7,24 +7,32 @@
 	Ping
 {% endblock %}
 {% block body %}
-{% if servidor %}
-<div>
-	<h2>{{ servidor }}</h2>
-	<a href="{% url 'user:logout' %}">Logout</a>
-</div>
-{% else %}
+<a class="pull-right" href="{% url 'user:logout' %}">Logout</a>
 <div class="col-md-offset-4">
-<h1>Bienvenido</h1>
+<h1>Welcome</h1>
 	<form method="POST" >
 	<div class="col-md-6" >
 		{% csrf_token %}
 		{{ form|crispy }}
-		<input type="submit" class="btn btn-primary"/>
-		<a href="{% url 'user:logout' %}">Logout</a>	
+		<input type="submit" class="btn btn-primary" value="Register" />	
 	</div>	
 	</form>
 </div>
-{% endif %}
+<div  class= "col-md-6 col-md-offset-4" >
+	<table id="datatable" class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>URL</th>
+<th>Status</th>
+<th>Option</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
 {% endblock %}
-{% block script %}	
+{% block script %}
+<script src="{% static 'js/ajax.js' %}"></script>	
 {% endblock %}

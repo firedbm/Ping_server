@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 
 class LoginForm(forms.Form):
-	username = forms.CharField(label='Usuario', required=True)
-	password = forms.CharField(label='Contraseña', required=True, widget=forms.PasswordInput)
+	username = forms.CharField(label='User', required=True)
+	password = forms.CharField(label='Password', required=True, widget=forms.PasswordInput)
 
 	def clean(self):
 		username = self.cleaned_data.get('username')
